@@ -116,6 +116,16 @@ jobs:
       upstream_artifact: upstream
     needs: [dist]
 
+  mingw:
+    uses: passagemath/passagemath/.github/workflows/mingw.yml@main
+    with:
+      targets: SAGE_CHECK=no SAGE_CHECK_PACKAGES="4ti2" 4ti2
+      # Standard setting: Test the current HEAD of passagemath:
+      sage_repo: passagemath/passagemath
+      sage_ref: main
+      upstream_artifact: upstream
+    needs: [dist]
+
   passagemath-latte-4ti2:
     uses: passagemath/passagemath/.github/workflows/docker.yml@main
     with:
